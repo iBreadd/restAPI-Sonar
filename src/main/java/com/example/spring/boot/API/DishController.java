@@ -10,8 +10,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class DishController {
-    @Autowired
+
     private DishService dishService;
+    @Autowired
+    public DishController(DishService dishService){
+        this.dishService=dishService;
+    }
 
     @PostMapping("/dish")
     public ResponseEntity<Dish> saveDish(@RequestBody Dish dish){

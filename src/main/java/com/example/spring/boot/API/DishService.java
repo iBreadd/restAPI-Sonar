@@ -8,8 +8,12 @@ import java.util.Optional;
 
 @Service
 public class DishService {
-    @Autowired
+
     private DishRepository dishRepository;
+    @Autowired
+    public DishService(DishRepository dishRepository){
+        this.dishRepository=dishRepository;
+    }
 
     public Dish saveDish(Dish dish) {
         return dishRepository.save(dish);
